@@ -6,8 +6,12 @@ export default [
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
-      // Remove or add custom globals here if needed:
-      // globals: { window: 'readonly', document: 'readonly' },
+      globals: {
+        alert: 'readonly',
+        window: 'readonly',
+        document: 'readonly',
+        // add any other globals you use here
+      },
     },
     rules: {
       ...js.configs.recommended.rules,
