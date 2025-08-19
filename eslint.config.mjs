@@ -6,12 +6,13 @@ export default [
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
-      globals: js.configs.recommended.languageOptions.globals,
+      // Remove or add custom globals here if needed:
+      // globals: { window: 'readonly', document: 'readonly' },
     },
     rules: {
       ...js.configs.recommended.rules,
-      semi: ['error', 'always'],        // enforce semicolons
-      quotes: ['error', 'single'],      // enforce single quotes
+      semi: ['error', 'always'],
+      quotes: ['error', 'single'],
     },
   },
 ];
