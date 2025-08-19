@@ -4,7 +4,7 @@
   "description": "A simple UI hosted with GitHub Pages and CI/CD using GitHub Actions",
   "main": "index.html",
   "scripts": {
-    "lint": "eslint . --ext .js",
+    "lint": "eslint .",
     "test": "echo \"No tests implemented yet\" && exit 0",
     "audit": "npm audit"
   },
