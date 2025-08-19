@@ -1,38 +1,38 @@
 name: CI/CD and Deploy to GitHub Pages
-
+ 
 on:
   push:
     branches: [main]
-
+ 
 permissions:
   contents: write
   pages: write
   id-token: write
-
+ 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
+ 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-
+ 
       - name: Install dependencies
         run: npm ci
-
+ 
       - name: Lint code
         run: npm run lint
-
+ 
       - name: Run tests
         run: npm test
-
+ 
       - name: Security audit
         run: npm audit --audit-level=high || true  # Avoid breaking on low vulnerabilities
-
+ 
   deploy:
     needs: build-and-test
     runs-on: ubuntu-latest
@@ -41,15 +41,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
+ 
       - name: Setup Pages
         uses: actions/configure-pages@v4
-
+ 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
-
+ 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+ 
+ 
